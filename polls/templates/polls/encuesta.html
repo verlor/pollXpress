@@ -1,31 +1,100 @@
+{% load static %}
+{% load widget_tweaks %}
+
 <!doctype html>
-<html ng-app>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Encuestillas</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "polls/form-validation.css" %}" rel="stylesheet">
   </head>
-  <body>
 
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello <span ng-bind="yourName"></span>!</h1>
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Presentación del cuestionario:</h2>
+        <p class="lead">
+          Este estudio tiene por objeto conocer los hábitos de uso de dispositivos que utilizan baterías de Ion-Litio, como notebooks, tablets y teléfonos móviles entre quienes forman parte de la Comunidad Universitaria. La información que recolectemos con esta actividad es de gran importancia para complementar varios proyectos científicos, tecnológicos y medio ambientales, actualmente en desarrollo en la UAM-Iztapalapa.
+Con este cuestionario buscamos realizar estimaciones y proyecciones acerca del efecto ambiental y tecnológico de los deshechos de baterías. Las respuestas obtenidas serán completamente anónimas y confidenciales, y se utilizarán solamente con fines estadísticos.
+Por favor ayúdanos respondiendo el siguiente cuestionario de manera  veraz. Estimamos que el tiempo necesario para responder es de 10 a 15 minutos.
+De antemano gracias.</p>
+      </div>
+
+        <div class="row">
+          <div class="col-md-12 order-md-2 mb-4">
+            <form action="{% url 'polls:manda_la'  %}" method="post">
+                {% csrf_token %}
+
+                {% for hidden_field in form.hidden_fields %}
+                  {{ hidden_field }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                  <div class="form-group">
+                    {{ field.label_tag }}
+                    {% render_field field class="form-control" %}
+                    {% if field.help_text %}
+                      <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
     </div>
 
-    <br/>
-    Hide: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br />
-    <div>
-      <form action="{% url 'polls:manda_la'  %}" method="post">
-        {% csrf_token %}
-          {{ form }}
-          <br />
-          <input type="submit" value="Guardaaa" />
-      </form>
-    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
 
-    <div ng-hide="true" class="ng-hide">
-        holo carambolo
-    </div>
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
   </body>
 </html>

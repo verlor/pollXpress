@@ -25,7 +25,7 @@ SECRET_KEY = '2plq&!&ppr)q@n&5l3kpy2vn2!s1gizn4ifrd2b^v3e)75f7lu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['encuesta.cbiuami.org','www.encuesta.cbiuami.org']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','encuesta.cbiuami.org','www.encuesta.cbiuami.org']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
