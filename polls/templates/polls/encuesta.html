@@ -45,7 +45,7 @@ De antemano gracias.</p>
 
                 {% for field in form.visible_fields %}
                   <div class="form-group">
-                    {{ field.label_tag }}
+                    {{ field.label_tag | linebreaks}}
                     {% render_field field class="form-control" %}
                     {% if field.help_text %}
                       <small class="form-text text-muted">{{ field.help_text }}</small>
@@ -53,7 +53,7 @@ De antemano gracias.</p>
                   </div>
                 {% endfor %}
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
             </form>
           </div>
         </div>
