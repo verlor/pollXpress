@@ -44,7 +44,7 @@ De antemano gracias.</p>
                 {% endfor %}
 
                 {% for field in form.visible_fields %}
-                  <div class="form-group">
+                  <div id="{{ field.id_for_label }}_f" class="form-group">
                     {{ field.label_tag | linebreaks}}
                     {% render_field field class="form-control" %}
                     {% if field.help_text %}
@@ -80,6 +80,143 @@ De antemano gracias.</p>
         'use strict';
 
         window.addEventListener('load', function() {
+          //validaciones locales custom etc
+
+          $("#id_P5").on("change", function(event) {
+              if($("#id_P5").val() == "0") {
+                $("#id_P6_f").css("display","none")
+                $("#id_P6_1_f").css("display","none")
+                $("#id_P7_11_f").css("display","none")
+                $("#id_P8_10_f").css("display","none")
+                $("#id_P8_11_f").css("display","none")
+                $("#id_P8_11_1_f").css("display","none")
+                $("#id_P9_10_f").css("display","none")
+              }
+              else if($("#id_P5").val() != "0") {
+                $("#id_P6_f").css("display","block")
+                $("#id_P6_1_f").css("display","block")
+                $("#id_P7_11_f").css("display","block")
+                $("#id_P8_10_f").css("display","block")
+                $("#id_P8_11_f").css("display","block")
+                $("#id_P8_11_1_f").css("display","block")
+                $("#id_P9_10_f").css("display","block")
+              }
+          } );
+
+          $("#id_P7_1").on("change", function(event) {
+              if($("#id_P7_1").val() == "2") {
+                $("#id_P7_2_f").css("display","none")
+                $("#id_P7_3_f").css("display","none")
+                $("#id_P7_3_o_f").css("display","none")
+                $("#id_P7_4_f").css("display","none")
+                $("#id_P7_5_f").css("display","none")
+                $("#id_P7_6_f").css("display","none")
+                $("#id_P7_7_f").css("display","none")
+                $("#id_P7_8_f").css("display","none")
+                $("#id_P7_9_f").css("display","none")
+                $("#id_P7_9_o_f").css("display","none")
+                $("#id_P7_10_f").css("display","none")
+                $("#id_P7_10_o_f").css("display","none")
+              }
+              else if($("#id_P7_1").val() != "2") {
+                $("#id_P7_2_f").css("display","block")
+                $("#id_P7_3_f").css("display","block")
+                $("#id_P7_3_o_f").css("display","block")
+                $("#id_P7_4_f").css("display","block")
+                $("#id_P7_5_f").css("display","block")
+                $("#id_P7_6_f").css("display","block")
+                $("#id_P7_7_f").css("display","block")
+                $("#id_P7_8_f").css("display","block")
+                $("#id_P7_9_f").css("display","block")
+                $("#id_P7_9_o_f").css("display","block")
+                $("#id_P7_10_f").css("display","block")
+                $("#id_P7_10_o_f").css("display","block")
+              }
+          } );
+
+          $("#id_P8_1").on("change", function(event) {
+              if($("#id_P8_1").val() == "2") {
+                $("#id_P8_2_f").css("display","none")
+                $("#id_P8_2_o_f").css("display","none")
+                $("#id_P8_3_f").css("display","none")
+                $("#id_P8_4_f").css("display","none")
+                $("#id_P8_5_f").css("display","none")
+                $("#id_P8_6_f").css("display","none")
+                $("#id_P8_7_f").css("display","none")
+                $("#id_P8_8_f").css("display","none")
+                $("#id_P8_8_o_f").css("display","none")
+                $("#id_P8_9_f").css("display","none")
+                $("#id_P8_9_o_f").css("display","none")
+              }
+              else if($("#id_P8_1").val() != "2") {
+                $("#id_P8_2_f").css("display","block")
+                $("#id_P8_2_o_f").css("display","block")
+                $("#id_P8_3_f").css("display","block")
+                $("#id_P8_4_f").css("display","block")
+                $("#id_P8_5_f").css("display","block")
+                $("#id_P8_6_f").css("display","block")
+                $("#id_P8_7_f").css("display","block")
+                $("#id_P8_8_f").css("display","block")
+                $("#id_P8_8_o_f").css("display","block")
+                $("#id_P8_9_f").css("display","block")
+                $("#id_P8_9_o_f").css("display","block")
+              }
+          } );
+
+          $("#id_P9_1").on("change", function(event) {
+              if($("#id_P9_1").val() == "2") {
+                $("#id_P9_2_f").css("display","none")
+                $("#id_P9_2_o_f").css("display","none")
+                $("#id_P9_3_f").css("display","none")
+                $("#id_P9_4_f").css("display","none")
+                $("#id_P9_5_f").css("display","none")
+                $("#id_P9_6_f").css("display","none")
+                $("#id_P9_7_f").css("display","none")
+                $("#id_P9_8_f").css("display","none")
+                $("#id_P9_8_o_f").css("display","none")
+                $("#id_P9_9_f").css("display","none")
+                $("#id_P9_9_o_f").css("display","none")
+              }
+              else if($("#id_P9_1").val() != "2") {
+                $("#id_P9_2_f").css("display","block")
+                $("#id_P9_2_o_f").css("display","block")
+                $("#id_P9_3_f").css("display","block")
+                $("#id_P9_4_f").css("display","block")
+                $("#id_P9_5_f").css("display","block")
+                $("#id_P9_6_f").css("display","block")
+                $("#id_P9_7_f").css("display","block")
+                $("#id_P9_8_f").css("display","block")
+                $("#id_P9_8_o_f").css("display","block")
+                $("#id_P9_9_f").css("display","block")
+                $("#id_P9_9_o_f").css("display","block")
+              }
+          } );
+
+          $("#id_P10").on("change", function(event) {
+              if($("#id_P10").val() == "2") {
+                $("#id_P11_f").css("display","none")
+              }
+              else if($("#id_P10").val() != "2") {
+                $("#id_P11_f").css("display","block")
+              }
+          } );
+
+          $("#id_P14_o_1_f").css("display","none");
+          $("#id_P14_o_2_f").css("display","none");
+          $("#id_P14_o_3_f").css("display","none");
+
+          $("#id_P13").on("change", function(event) {
+              if($("#id_P13").val() == "1") {
+                $("#id_P14_o_1_f").css("display","block")
+                $("#id_P14_o_2_f").css("display","block")
+                $("#id_P14_o_3_f").css("display","block")
+              }
+              else if($("#id_P13").val() != "1") {
+                $("#id_P14_o_1_f").css("display","none")
+                $("#id_P14_o_2_f").css("display","none")
+                $("#id_P14_o_3_f").css("display","none")
+              }
+          } );
           // Fetch all the forms we want to apply custom Bootstrap validation styles to
           var forms = document.getElementsByClassName('needs-validation');
 
