@@ -4,6 +4,13 @@ from django import forms
 from django.core.validators import MinValueValidator
 # Create your models here.
 
+class CodigoPostal(models.Model):
+    codigo = models.CharField(max_length=10)
+    municipio = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.codigo
+
 class Article(models.Model):
     pub_date = models.DateTimeField()
 
@@ -64,6 +71,9 @@ class Article(models.Model):
     )
 
     #preguntaa 4 pendiente
+    P4 = models.ForeignKey(CodigoPostal, on_delete=models.CASCADE,
+         verbose_name="El código postal del lugar donde vives es:  ",
+    )
 
     P5 = models.IntegerField(
         null=True,
@@ -651,6 +661,11 @@ class Article(models.Model):
         ordering = ('pub_date',)
 
 class ArticleForm(ModelForm):
+    #birth_country = forms.ModelChoiceField(
+    #    queryset=Country.objects.all(),
+    #    widget=autocomplete.ModelSelect2(url='country-autocomplete')
+    #)
+
     class Meta:
         model = Article
         exclude = ('pub_date',)
