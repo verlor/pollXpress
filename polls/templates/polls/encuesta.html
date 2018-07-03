@@ -27,7 +27,6 @@
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>Presentación del cuestionario:</h2>
         <p class="lead">
           Este estudio tiene por objeto conocer los hábitos de uso de dispositivos que utilizan baterías de Ion-Litio, como notebooks, tablets y teléfonos móviles entre quienes forman parte de la Comunidad Universitaria. La información que recolectemos con esta actividad es de gran importancia para complementar varios proyectos científicos, tecnológicos y medio ambientales, actualmente en desarrollo en la UAM-Iztapalapa.
@@ -46,6 +45,18 @@ De antemano gracias.</p>
                 {% endfor %}
 
                 {% for field in form.visible_fields %}
+                  {% if field.id_for_label == "id_P7_1" %}
+                    <h4 class="mb-3">Preguntas sobre Teléfonos Móviles</h4>
+                  {% endif %}
+                  {% if field.id_for_label == "id_P8_1" %}
+                    <h4 class="mb-3">Preguntas sobre Tablets</h4>
+                  {% endif %}
+                  {% if field.id_for_label == "id_P9_1" %}
+                    <h4 class="mb-3">Preguntas sobre Computadoras Portátiles (Notebooks, Netbooks, etc.)</h4>
+                  {% endif %}
+                  {% if field.id_for_label == "id_P10" %}
+                    <h4 class="mb-3">Preguntas Finales</h4>
+                  {% endif %}
                   <div id="{{ field.id_for_label }}_f" class="form-group">
                     {{ field.label_tag | linebreaks}}
                     {% render_field field class="form-control" %}
@@ -55,17 +66,15 @@ De antemano gracias.</p>
                   </div>
                 {% endfor %}
 
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar encuesta</button>
             </form>
           </div>
         </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <p class="mb-1">2018 UAM-I</p>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
+          <li class="list-inline-item"><a href="#">neseiza</a></li>
         </ul>
       </footer>
     </div>

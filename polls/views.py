@@ -24,7 +24,4 @@ def manda_la(request):
 
     articulo.save()
 
-    return render(request, 'polls/encuesta.html', {
-    'form': ArticleForm(),
-    'myValue' : 1
-    })
+    return render(request, 'polls/results.html')
