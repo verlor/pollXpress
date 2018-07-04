@@ -9,7 +9,7 @@ class CodigoPostal(models.Model):
     municipio = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.codigo
+        return (self.codigo+' - '+self.municipio)
 
 class Article(models.Model):
     pub_date = models.DateTimeField()
@@ -86,7 +86,7 @@ class Article(models.Model):
         null=True,
         blank=True,
         help_text='Ingresa el número de personas. Si no vivies con familiares ingresa 0 (cero).',
-        verbose_name="La relación de parentesco que tienes con las personas con quienes vives es: \n Familiares",
+        verbose_name="De las personas que viven contigo: \n ¿Cuántas son tus familiares?",
     # Filtro: Si P5=0, esta no se debe ver
     )
 
@@ -94,7 +94,7 @@ class Article(models.Model):
         null=True,
         blank=True,
         help_text='Ingresa el número de personas',
-        verbose_name="No Familiares",
+        verbose_name="¿Cuántas no son tus familiares?",
         validators=[MinValueValidator(0)],
     # Filtro: Si P5=0, esta no se debe ver
     )
@@ -243,7 +243,7 @@ class Article(models.Model):
             (2, 'Se rompió / descompuso el equipo'),
             (3, 'Robo del equipo'),
         ),
-        verbose_name="7.11 El principal motivo por el que cambias de teléfono móvil es:",
+        verbose_name="El principal motivo por el que cambias de teléfono móvil es:",
     # Filtro: Si P7_1=2 ocultar
     )
 
@@ -625,7 +625,7 @@ class Article(models.Model):
             (2, 'No'),
             (3, 'No sé'),
         ),
-        verbose_name="Además de los dispositivos ya señalados, ¿Usas algún otro aparato que tenga baterías de Ión-Litio?",
+        verbose_name="Además de los dispositivos ya señalados, ¿Usas algún otro aparato que tenga baterías de Ion-Litio?",
     )
 
     P14_o_1 = models.CharField(

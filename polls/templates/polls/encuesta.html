@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Encuestillas</title>
+    <title>Encuesta reciclaje litio</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 
@@ -26,13 +26,14 @@
   <body class="bg-light">
 
     <div class="container">
-      <div class="py-5 text-center">
+      <div class="py-5 text-justify">
         <h2>Presentación del cuestionario:</h2>
         <p class="lead">
           Este estudio tiene por objeto conocer los hábitos de uso de dispositivos que utilizan baterías de Ion-Litio, como notebooks, tablets y teléfonos móviles entre quienes forman parte de la Comunidad Universitaria. La información que recolectemos con esta actividad es de gran importancia para complementar varios proyectos científicos, tecnológicos y medio ambientales, actualmente en desarrollo en la UAM-Iztapalapa.
-Con este cuestionario buscamos realizar estimaciones y proyecciones acerca del efecto ambiental y tecnológico de los deshechos de baterías. Las respuestas obtenidas serán completamente anónimas y confidenciales, y se utilizarán solamente con fines estadísticos.
-Por favor ayúdanos respondiendo el siguiente cuestionario de manera  veraz. Estimamos que el tiempo necesario para responder es de 10 a 15 minutos.
-De antemano gracias.</p>
+          <br/>
+          Con este cuestionario buscamos realizar estimaciones y proyecciones acerca del efecto ambiental y tecnológico de los deshechos de baterías. Las respuestas obtenidas serán completamente anónimas y confidenciales, y se utilizarán solamente con fines estadísticos.
+          Por favor ayúdanos respondiendo el siguiente cuestionario de manera  veraz. Estimamos que el tiempo necesario para responder es de 10 a 15 minutos.
+          De antemano gracias.</p>
       </div>
 
         <div class="row">
@@ -98,20 +99,20 @@ De antemano gracias.</p>
               if($("#id_P5").val() == "0") {
                 $("#id_P6_f").css("display","none")
                 $("#id_P6_1_f").css("display","none")
-                $("#id_P7_11_f").css("display","none")
-                $("#id_P8_10_f").css("display","none")
+                $("#id_P7_12_f").css("display","none")
                 $("#id_P8_11_f").css("display","none")
-                $("#id_P8_11_1_f").css("display","none")
-                $("#id_P9_10_f").css("display","none")
+                $("#id_P8_12_f").css("display","none")
+                $("#id_P8_12_1_f").css("display","none")
+                $("#id_P9_11_f").css("display","none")
               }
               else if($("#id_P5").val() != "0") {
                 $("#id_P6_f").css("display","block")
                 $("#id_P6_1_f").css("display","block")
-                $("#id_P7_11_f").css("display","block")
+                $("#id_P7_12_f").css("display","block")
                 $("#id_P8_10_f").css("display","block")
                 $("#id_P8_11_f").css("display","block")
                 $("#id_P8_11_1_f").css("display","block")
-                $("#id_P9_10_f").css("display","block")
+                $("#id_P9_11_f").css("display","block")
               }
           } );
 
@@ -121,28 +122,34 @@ De antemano gracias.</p>
                 $("#id_P7_3_f").css("display","none")
                 $("#id_P7_3_o_f").css("display","none")
                 $("#id_P7_4_f").css("display","none")
+                $("#id_P7_4_o_f").css("display","none")
                 $("#id_P7_5_f").css("display","none")
                 $("#id_P7_6_f").css("display","none")
                 $("#id_P7_7_f").css("display","none")
                 $("#id_P7_8_f").css("display","none")
                 $("#id_P7_9_f").css("display","none")
-                $("#id_P7_9_o_f").css("display","none")
+
                 $("#id_P7_10_f").css("display","none")
                 $("#id_P7_10_o_f").css("display","none")
+                $("#id_P7_11_f").css("display","none")
+                $("#id_P7_11_o_f").css("display","none")
               }
               else if($("#id_P7_1").val() != "2") {
                 $("#id_P7_2_f").css("display","block")
                 $("#id_P7_3_f").css("display","block")
                 $("#id_P7_3_o_f").css("display","block")
                 $("#id_P7_4_f").css("display","block")
+                $("#id_P7_4_o_f").css("display","block")
                 $("#id_P7_5_f").css("display","block")
                 $("#id_P7_6_f").css("display","block")
                 $("#id_P7_7_f").css("display","block")
                 $("#id_P7_8_f").css("display","block")
                 $("#id_P7_9_f").css("display","block")
-                $("#id_P7_9_o_f").css("display","block")
+
                 $("#id_P7_10_f").css("display","block")
                 $("#id_P7_10_o_f").css("display","block")
+                $("#id_P7_11_f").css("display","block")
+                $("#id_P7_11_o_f").css("display","block")
               }
           } );
 
@@ -151,27 +158,31 @@ De antemano gracias.</p>
                 $("#id_P8_2_f").css("display","none")
                 $("#id_P8_2_o_f").css("display","none")
                 $("#id_P8_3_f").css("display","none")
+                $("#id_P8_3_o_f").css("display","none")
                 $("#id_P8_4_f").css("display","none")
                 $("#id_P8_5_f").css("display","none")
                 $("#id_P8_6_f").css("display","none")
                 $("#id_P8_7_f").css("display","none")
                 $("#id_P8_8_f").css("display","none")
-                $("#id_P8_8_o_f").css("display","none")
                 $("#id_P8_9_f").css("display","none")
                 $("#id_P8_9_o_f").css("display","none")
+                $("#id_P8_10_f").css("display","none")
+                $("#id_P8_10_o_f").css("display","none")
               }
               else if($("#id_P8_1").val() != "2") {
                 $("#id_P8_2_f").css("display","block")
                 $("#id_P8_2_o_f").css("display","block")
                 $("#id_P8_3_f").css("display","block")
+                $("#id_P8_3_o_f").css("display","block")
                 $("#id_P8_4_f").css("display","block")
                 $("#id_P8_5_f").css("display","block")
                 $("#id_P8_6_f").css("display","block")
                 $("#id_P8_7_f").css("display","block")
                 $("#id_P8_8_f").css("display","block")
-                $("#id_P8_8_o_f").css("display","block")
                 $("#id_P8_9_f").css("display","block")
                 $("#id_P8_9_o_f").css("display","block")
+                $("#id_P8_10_f").css("display","block")
+                $("#id_P8_10_o_f").css("display","block")
               }
           } );
 
@@ -180,27 +191,31 @@ De antemano gracias.</p>
                 $("#id_P9_2_f").css("display","none")
                 $("#id_P9_2_o_f").css("display","none")
                 $("#id_P9_3_f").css("display","none")
+                $("#id_P9_3_o_f").css("display","none")
                 $("#id_P9_4_f").css("display","none")
                 $("#id_P9_5_f").css("display","none")
                 $("#id_P9_6_f").css("display","none")
                 $("#id_P9_7_f").css("display","none")
                 $("#id_P9_8_f").css("display","none")
-                $("#id_P9_8_o_f").css("display","none")
                 $("#id_P9_9_f").css("display","none")
                 $("#id_P9_9_o_f").css("display","none")
+                $("#id_P9_10_f").css("display","none")
+                $("#id_P9_10_o_f").css("display","none")
               }
               else if($("#id_P9_1").val() != "2") {
                 $("#id_P9_2_f").css("display","block")
                 $("#id_P9_2_o_f").css("display","block")
                 $("#id_P9_3_f").css("display","block")
+                $("#id_P9_3_o_f").css("display","block")
                 $("#id_P9_4_f").css("display","block")
                 $("#id_P9_5_f").css("display","block")
                 $("#id_P9_6_f").css("display","block")
                 $("#id_P9_7_f").css("display","block")
                 $("#id_P9_8_f").css("display","block")
-                $("#id_P9_8_o_f").css("display","block")
                 $("#id_P9_9_f").css("display","block")
                 $("#id_P9_9_o_f").css("display","block")
+                $("#id_P9_10_f").css("display","block")
+                $("#id_P9_10_o_f").css("display","block")
               }
           } );
 
