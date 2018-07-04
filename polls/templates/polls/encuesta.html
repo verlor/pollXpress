@@ -21,6 +21,7 @@
     <link href="{% static "polls/form-validation.css" %}" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   </head>
 
   <body class="bg-light">
@@ -35,6 +36,18 @@
           Por favor ayúdanos respondiendo el siguiente cuestionario de manera  veraz. Estimamos que el tiempo necesario para responder es de 10 a 15 minutos.
           De antemano gracias.</p>
       </div>
+
+        <div id="dialog" title="Incosistencia">
+          <p> El número de personas ingresado debe ser igual o menor que el número de personas con quienes vives  </p>
+        </div>
+
+        <div id="dialog2" title="Incosistencia">
+          <p> El total de familiares y no familiares debe ser igual o menor que el número de personas con quienes vives  </p>
+        </div>
+
+        <div id="dialog3" title="Incosistencia">
+          <p> El total de personas que hace uso individual o compartido de las tablets debe ser igual o menor que el número de personas que tienen tablets  </p>
+        </div>
 
         <div class="row">
           <div class="col-md-12 order-md-2 mb-4">
@@ -83,9 +96,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -94,6 +109,48 @@
 
         window.addEventListener('load', function() {
           //validaciones locales custom etc
+
+          $( "#dialog" ).dialog({
+            autoOpen: false,
+          });
+
+          $( "#dialog2" ).dialog({
+            autoOpen: false,
+          });
+
+          $( "#dialog3" ).dialog({
+            autoOpen: false,
+          });
+
+          $("#id_P6_1").on("change", function(event) {
+            if(  parseInt($("#id_P5").val()) != parseInt($("#id_P6").val()) + parseInt($("#id_P6_1").val()) ) {
+              $( "#dialog2" ).dialog( "open" );
+            }
+          })
+
+          $("#id_P7_12").on("change", function(event) {
+            if(  parseInt($("#id_P7_12").val()) > parseInt($("#id_P5").val())  ) {
+              $( "#dialog" ).dialog( "open" );
+            }
+          })
+
+          $("#id_P8_11").on("change", function(event) {
+            if(  parseInt($("#id_P8_11").val()) > parseInt($("#id_P5").val())  ) {
+              $( "#dialog" ).dialog( "open" );
+            }
+          })
+
+          $("#id_P8_12_1").on("change", function(event) {
+            if(  parseInt($("#id_P8_11").val()) > parseInt($("#id_P8_12_1").val()) + parseInt($("#id_P8_12").val()) ) {
+              $( "#dialog3" ).dialog( "open" );
+            }
+          })
+
+          $("#id_P9_11").on("change", function(event) {
+            if(  parseInt($("#id_P9_11").val()) > parseInt($("#id_P5").val())  ) {
+              $( "#dialog" ).dialog( "open" );
+            }
+          })
 
           $("#id_P5").on("change", function(event) {
               if($("#id_P5").val() == "0") {

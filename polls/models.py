@@ -2,7 +2,11 @@ from django.db import models
 from django.forms import ModelForm, Textarea
 from django import forms
 from django.core.validators import MinValueValidator
+
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
+
 
 class CodigoPostal(models.Model):
     codigo = models.CharField(max_length=10)
@@ -73,16 +77,19 @@ class Article(models.Model):
     #preguntaa 4 pendiente
     P4 = models.ForeignKey(CodigoPostal, on_delete=models.CASCADE,
          verbose_name="El código postal del lugar donde vives es:  ",
+         null=True,
+         blank=True,
     )
 
-    P5 = models.IntegerField(
+    P5 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de personas. Si vives sola/o, ingresa 0 (cero).',
         verbose_name="La cantidad de personas con las que vives actualmente es: ",
+
     )
 
-    P6 = models.IntegerField(
+    P6 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de personas. Si no vivies con familiares ingresa 0 (cero).',
@@ -90,12 +97,11 @@ class Article(models.Model):
     # Filtro: Si P5=0, esta no se debe ver
     )
 
-    P6_1 = models.IntegerField(
+    P6_1 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de personas',
         verbose_name="¿Cuántas no son tus familiares?",
-        validators=[MinValueValidator(0)],
     # Filtro: Si P5=0, esta no se debe ver
     )
 
@@ -176,7 +182,7 @@ class Article(models.Model):
     # Filtro: Si P7_1=2 ocultar
     )
 
-    P7_6 = models.IntegerField(
+    P7_6 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de meses',
@@ -184,7 +190,7 @@ class Article(models.Model):
     # Filtro: Si P7_1=2 ocultar
     )
 
-    P7_7 = models.IntegerField(
+    P7_7 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de veces',
@@ -254,7 +260,7 @@ class Article(models.Model):
     # Filtro: Si P7_1=2 ocultar
     )
 
-    P7_12 = models.IntegerField(
+    P7_12 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa la cantidad de personas que tiene este tipo de equipo',
@@ -330,7 +336,7 @@ class Article(models.Model):
     # Filtro: Si P8_1=2 ocultar
     )
 
-    P8_5 = models.IntegerField(
+    P8_5 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de meses. Si es tu primera tablet ingresa 0 (cero)',
@@ -338,7 +344,7 @@ class Article(models.Model):
     # Filtro: Si P8_1=2 ocultar
     )
 
-    P8_6 = models.IntegerField(
+    P8_6 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de veces',
@@ -408,7 +414,7 @@ class Article(models.Model):
     # Filtro: Si P8_1=2 ocultar
     )
 
-    P8_11 = models.IntegerField(
+    P8_11 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa la cantidad de personas que tiene este tipo de equipo',
@@ -416,7 +422,7 @@ class Article(models.Model):
     # Filtro: Si P5=0 ocultar
     )
 
-    P8_12 = models.IntegerField(
+    P8_12 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de personas que usa tablets de manera individual',
@@ -424,12 +430,11 @@ class Article(models.Model):
     # Filtro: Si P5=0, esta no se debe ver
     )
 
-    P8_12_1 = models.IntegerField(
+    P8_12_1 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de personas que comparte tablets',
         verbose_name="Compartido",
-        validators=[MinValueValidator(0)],
     # Filtro: Si P5=0, esta no se debe ver
     )
 
@@ -500,7 +505,7 @@ class Article(models.Model):
     # Filtro: Si P9_1=2 ocultar
     )
 
-    P9_5 = models.IntegerField(
+    P9_5 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de meses. Si es tu primera computadora portátil ingresa 0 (cero)',
@@ -508,7 +513,7 @@ class Article(models.Model):
     # Filtro: Si P9_1=2 ocultar
     )
 
-    P9_6 = models.IntegerField(
+    P9_6 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de veces',
@@ -578,7 +583,7 @@ class Article(models.Model):
     # Filtro: Si P9_1=2 ocultar
     )
 
-    P9_11 = models.IntegerField(
+    P9_11 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa la cantidad de personas que tiene este tipo de equipo',
@@ -599,7 +604,7 @@ class Article(models.Model):
         verbose_name="¿En el lugar donde vives tienen computadoras de escritorio (fijas)?",
     )
 
-    P11 = models.IntegerField(
+    P11 = models.PositiveIntegerField(
         null=True,
         blank=True,
         help_text='Ingresa el número de computadoras de escritorio',
