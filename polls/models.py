@@ -79,6 +79,7 @@ class Article(models.Model):
          verbose_name="El código postal del lugar donde vives es:  ",
          null=True,
          blank=True,
+         help_text="En caso de que tu código inicie con 0, favor de omitirlo",
     )
 
     P5 = models.PositiveIntegerField(
