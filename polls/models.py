@@ -17,6 +17,21 @@ class CodigoPostal(models.Model):
 
 class Article(models.Model):
     pub_date = models.DateTimeField()
+    
+    P0 = models.IntegerField(
+        null=True,
+        blank=True,
+
+        choices=(
+            (1, 'Azcapotzalco'),
+            (2, 'Cuajimalpa'),
+            (3, 'Iztapalapa'),
+            (4, 'Lerma'),
+            (5, 'Xochimilco'),
+        ),
+
+        verbose_name="Si eres estudiante o profesor, ¿Cuál es tu unidad?:",
+    )
 
     P1 = models.IntegerField(
         null=True,
