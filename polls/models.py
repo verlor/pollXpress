@@ -30,7 +30,7 @@ class Article(models.Model):
             (5, 'Xochimilco'),
         ),
 
-        verbose_name="Si eres estudiante o profesor, ¿Cuál es tu unidad?:",
+        verbose_name="¿A qué Unidad asistes para estudiar o trabajar?",
     )
 
     P1 = models.IntegerField(
