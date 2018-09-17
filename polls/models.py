@@ -171,6 +171,7 @@ class Article(models.Model):
             (5, 'Compras online'),
             (6, 'Operaciones bancarias (consultas, transferencias, etc.)'),
             (7, 'Trabajar'),
+            (8, 'Otra actividad'),
         ),
         help_text='Marca sólo la actividad que realizas con mayor frecuencia',
         verbose_name="Usas principalmente tu teléfono móvil para:",
@@ -180,7 +181,7 @@ class Article(models.Model):
     P7_4_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otra, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otra actividad, ¿cuál es esa actividad?',
     # Filtro: Si P7_1=2 ocultar
     )
 
@@ -245,6 +246,7 @@ class Article(models.Model):
             (3, 'Lo vendas'),
             (4, 'Se quede en tu casa (sin usar)'),
             (5, 'Sigas usando el equipo viejo'),
+            (6, 'Otra'),
         ),
         verbose_name="Al cambiar de teléfono móvil, lo habitual es que el equipo viejo:",
     # Filtro: Si P7_1=2 ocultar
@@ -253,7 +255,7 @@ class Article(models.Model):
     P7_10_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otra, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción Otra, ¿qué haces con el equipo viejo?',
     # Filtro: Si P7_1=2 ocultar
     )
 
@@ -264,6 +266,8 @@ class Article(models.Model):
             (1, 'Actualizar el equipo'),
             (2, 'Se rompió / descompuso el equipo'),
             (3, 'Robo del equipo'),
+            (4, 'Pérdida del equipo'),
+            (5, 'Otro motivo'),
         ),
         verbose_name="El principal motivo por el que cambias de teléfono móvil es:",
     # Filtro: Si P7_1=2 ocultar
@@ -272,7 +276,7 @@ class Article(models.Model):
     P7_11_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otro, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otro motivo, ¿qué otro motivo?',
     # Filtro: Si P7_1=2 ocultar
     )
 
@@ -325,6 +329,7 @@ class Article(models.Model):
             (6, 'Comunicarte por internet (Redes sociales)'),
             (7, 'Compras online'),
             (8, 'Operaciones bancarias (consultas, transferencias, etc.)'),
+            (9, 'Otra actividad'),
         ),
         help_text='Marca sólo la actividad que realizas con mayor frecuencia',
         verbose_name="Usas principalmente tu tablet para:",
@@ -334,7 +339,7 @@ class Article(models.Model):
     P8_3_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otra, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otra actividad, ¿cuál es esa actividad?',
     # Filtro: Si P8_1=2 ocultar
     )
 
@@ -418,6 +423,7 @@ class Article(models.Model):
             (1, 'Actualizar el equipo'),
             (2, 'Se rompió / descompuso el equipo'),
             (3, 'Robo del equipo'),
+            (4, 'Otro motivo')
         ),
         verbose_name="El principal motivo por el que cambias de tablet es:",
     # Filtro: Si P8_1=2 ocultar
@@ -426,7 +432,7 @@ class Article(models.Model):
     P8_10_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otro, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otro motivo, ¿qué otro motivo?',
     # Filtro: Si P8_1=2 ocultar
     )
 
@@ -494,6 +500,7 @@ class Article(models.Model):
             (5, 'Trabajar'),
             (6, 'Compras online'),
             (7, 'Operaciones bancarias (consultas, transferencias, etc.)'),
+            (8, 'Otra actividad'),
         ),
         help_text='Marca sólo la actividad que realizas con mayor frecuencia',
         verbose_name="Usas principalmente tu computadora portátil para:",
@@ -503,7 +510,7 @@ class Article(models.Model):
     P9_3_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otra, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otra actividad, ¿cuál es esa actividad?',
     # Filtro: Si P9_1=2 ocultar
     )
 
@@ -568,6 +575,7 @@ class Article(models.Model):
             (3, 'Lo vendas'),
             (4, 'Se quede en tu casa (sin usar)'),
             (5, 'Sigas usando el equipo viejo'),
+            (6, 'Otra'),
         ),
         verbose_name="Al cambiar de computadora portátil, lo habitual es que el equipo viejo:",
     # Filtro: Si P9_1=2 ocultar
@@ -576,7 +584,7 @@ class Article(models.Model):
     P9_9_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otra, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción Otra, ¿qué haces con el equipo viejo?',
     # Filtro: Si P9_1=2 ocultar
     )
 
@@ -587,6 +595,7 @@ class Article(models.Model):
             (1, 'Actualizar el equipo'),
             (2, 'Se rompió / descompuso el equipo'),
             (3, 'Robo del equipo'),
+            (4, 'Otro motivo')
         ),
         verbose_name="El principal motivo por el que cambias de computadora portátil es:",
     # Filtro: Si P9_1=2 ocultar
@@ -595,7 +604,7 @@ class Article(models.Model):
     P9_10_o = models.CharField(
         max_length=100,
         blank=True,
-        verbose_name='Otro, ¿cuál?',
+        verbose_name='En la pregunta anterior seleccionó la opción otro motivo, ¿qué otro motivo?',
     # Filtro: Si P9_1=2 ocultar
     )
 
