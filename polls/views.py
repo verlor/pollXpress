@@ -11,11 +11,15 @@ def index(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
-def poll_index(request):
-    form = ArticleForm()
-    return render(request, 'polls/encuesta.html', {
-    'form': form
-    })
+def poll_index(request):    
+    return render(request, 'polls/poll_closed.html')
+
+# def poll_index(request):
+#     form = ArticleForm()
+#     return render(request, 'polls/encuesta.html', {
+#     'form': form
+#     })
+
 
 def manda_la(request):
     f = ArticleForm(request.POST)
